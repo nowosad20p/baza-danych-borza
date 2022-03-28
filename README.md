@@ -1,2 +1,2 @@
 # baza-danych-borza
-tak
+https://dbdesigner.page.link/GgWrBhzEPTHWqUXB9
