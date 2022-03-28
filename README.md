@@ -1,0 +1,2 @@
+# baza-danych-borza
+tak
