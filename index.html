@@ -95,13 +95,16 @@
                 ],
             }
             console.log(res)
-            function createTable(data) {
+            //------dane w JSON z których ma zrobić tabele, element w którym ma to wyświetlić
+            function createTable(data, output) {
                 const table = document.createElement("table")
+                //----dodaje wyglad tablicy------
                 table.classList.add("table")
                 table.classList.add("table-dark")
                 table.classList.add("table-striped")
                 table.classList.add("table-hover")
                 // console.log(data.people)
+                //--------tworzy to takie menu od tablicy--------
                 function createHeader(element) {
                     const thead = document.createElement("thead")
                     const tr = document.createElement("tr")
@@ -115,12 +118,11 @@
                     table.append(thead)
                 }
                 createHeader(data.people[0])
-
+                //-------------dodaje dane do tablicy
                 const tbody = document.createElement("tbody")
                 data.people.forEach((element) => {
                     const tr = document.createElement("tr")
                     for (let key in element) {
-                        // console.log(element[key])
                         const td = document.createElement("td")
                         td.innerText = element[key]
                         tr.append(td)
@@ -128,22 +130,19 @@
                     tbody.append(tr)
                 })
                 table.append(tbody)
+                //-------dodaje scope="col" do komórek w nagłówku tablicy
                 table.querySelectorAll("th").forEach((element) => {
-                    let text = "col"
-                    element.setAttribute("scope", text)
+                    element.setAttribute("scope", "col")
                 })
+                //----------dodaje scope="row" do pierwszej komórki wierszy tablicy z wyjątkiem nagłówka
                 table.querySelectorAll("tr").forEach((element) => {
-                    // console.log(element.querySelector("td"))
-                    if (element.querySelector("td") === null) {
-                    } else {
-                        // element.querySelector("td").classList.add("row")
-                        let text = "row"
-                        element.querySelector("td").setAttribute("scope", text)
+                    if (!(element.querySelector("td") === null)) {
+                        element.querySelector("td").setAttribute("scope", "row")
                     }
                 })
-                display.append(table)
+                output.append(table)
             }
-            createTable(res)
+            createTable(res, display)
         </script>
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
