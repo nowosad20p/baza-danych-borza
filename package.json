@@ -1,0 +1,26 @@
+{
+  "name": "karetki",
+  "version": "1.0.0",
+  "description": "Ciekawy i wyczerpujacy opis.",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nowosad20p/baza-danych-borza.git"
+  },
+  "keywords": [
+    "karetki"
+  ],
+  "author": "3 mondrych ludziow",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nowosad20p/baza-danych-borza/issues"
+  },
+  "homepage": "https://github.com/nowosad20p/baza-danych-borza#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "mysql": "^2.18.1"
+  }
+}
