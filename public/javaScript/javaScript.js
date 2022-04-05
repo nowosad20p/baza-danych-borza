@@ -1,5 +1,6 @@
 const body = document.querySelector("body")
 const display = document.querySelector("#display")
+const display2 = document.querySelector("#display2")
 // async function wes()
 // {
 //     let res = await fetch("sample4.json")
@@ -33,9 +34,9 @@ let res = {
         },
         {
             firstName: "Adam",
-            lastName: "ANALfabeta",
+            lastName: "fabeta",
             gender: "female",
-            age: 69,
+            age: 68,
             number: "420420420",
         },
     ],
@@ -89,3 +90,4 @@ function createTable(data, output) {
     output.append(table)
 }
 createTable(res, display)
+createTable(res, display2)
