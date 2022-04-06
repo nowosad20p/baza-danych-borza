@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/nowosad20p/baza-danych-borza#readme",
   "dependencies": {
+    "bootstrap-icons": "^1.8.1",
     "express": "^4.17.3",
     "mysql": "^2.18.1"
   }

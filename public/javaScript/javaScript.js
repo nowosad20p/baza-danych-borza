@@ -1,6 +1,24 @@
 const body = document.querySelector("body")
 const display = document.querySelector("#display")
 const display2 = document.querySelector("#display2")
+const rowView = document.querySelector("#row-view")
+const colView = document.querySelector("#column-view")
+
+function changeView(classToAdd) {
+    const displays = document.querySelectorAll(".disp")
+    displays.forEach((element) => {
+        element.classList.remove("col-12")
+        element.classList.remove("col-5")
+        element.classList.add(classToAdd)
+    })
+}
+
+rowView.addEventListener("click", () => {
+    changeView("col-12")
+})
+colView.addEventListener("click", () => {
+    changeView("col-5")
+})
 // async function wes()
 // {
 //     let res = await fetch("sample4.json")

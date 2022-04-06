@@ -24,7 +24,7 @@ let poolBase = mysql.createPool({
 
 //------zbieranie loginów z bazy danych
 async function getLogins() {
-    let logins = await poolBase.query("SELECT id_operatora, imie_operatora, nazwisko_operatora from operatorzy", function (err, res, fields) {
+    let logins = await poolBase.query("SELECT id_operatora, imie_operatora, nazwisko_operatora from operatorzy", async function (err, res, fields) {
         if (err) throw err
         console.log(res)
         return res
