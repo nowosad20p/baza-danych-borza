@@ -11,13 +11,14 @@
             integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
             crossorigin="anonymous"
         />
+        <link rel="stylesheet" href="style/style.css" />
     </head>
-    <body>
+    <body class="bg-secondary">
         <header class="navbar mb-5 bg-dark bg-gradient shadow">
-            <div class="container-fluid">
-                <div class="d-flex">
+            <div class="container">
+                <div class="col-12 d-flex justify-content-between">
                     <div class=""><h1 class="mx-4 font-monospace text-light">IOIO</h1></div>
-                    <div class="btn-group" role="group" aria-label="Basic example">
+                    <div class="btn-group mx-2" role="group" aria-label="Basic example">
                         <button id="column-view" type="button" class="btn btn-outline-info">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -35,11 +36,11 @@
                         <button id="row-view" type="button" class="btn btn-outline-info">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
+                                width="24"
+                                height="24"
                                 fill="currentColor"
                                 class="bi bi-grid-3x2-gap-fill"
-                                viewBox="0 0 16 16"
+                                viewBox="1 -0.8 16 16"
                             >
                                 <path
                                     d="M1 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V4zM1 9a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V9zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V9zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V9z"
@@ -47,22 +48,95 @@
                             </svg>
                         </button>
                     </div>
+                    <div class="text-light mx-auto">
+                        <h2 id="username-nav">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="26"
+                                height="26"
+                                fill="currentColor"
+                                class="bi bi-person-fill"
+                                viewBox="0 2 16 16"
+                            >
+                                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                            </svg>
+                        </h2>
+                    </div>
+                    <div class="btn-group mx-2" role="group" aria-label="Basic example">
+                        <button id="main-panel" type="button" class="btn btn-outline-info">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="14"
+                                height="14"
+                                fill="currentColor"
+                                class="bi bi-house-door-fill"
+                                viewBox="0 1 16 16"
+                            >
+                                <path
+                                    d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"
+                                />
+                            </svg>
+                            Start
+                        </button>
+                        <button id="log-out" type="button" class="btn btn-outline-info">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="20"
+                                height="20"
+                                fill="currentColor"
+                                class="bi bi-forward-fill"
+                                viewBox="0 2 16 16"
+                            >
+                                <path
+                                    d="m9.77 12.11 4.012-2.953a.647.647 0 0 0 0-1.114L9.771 5.09a.644.644 0 0 0-.971.557V6.65H2v3.9h6.8v1.003c0 .505.545.808.97.557z"
+                                />
+                            </svg>
+                            Wyloguj
+                        </button>
+                    </div>
                 </div>
             </div>
         </header>
 
-        <div class="container">
-            <div class="row">
-                <div id="display" class="disp m-2 container col-5"></div>
-
-                <div id="display2" class="disp m-2 container col-5"></div>
+        <div class="container d-flex">
+            <div id="pop-up" class="border border-danger rounded border-3 bg-light p-1 pt-2 me-auto px-3">
+                <h5>
+                    Ten rodzaj widoku może nie działać poprawnie na ekranie mniejszych użądzeń.
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="25"
+                        height="35"
+                        fill="currentColor"
+                        class="bi bi-x-circle-fill"
+                        viewBox="0 1.5 16 16"
+                    >
+                        <path
+                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"
+                        />
+                    </svg>
+                </h5>
             </div>
         </div>
-        <script src="javaScript/javaScript.js"></script>
+
+        <div class="container">
+            <div class="row">
+                <div id="display" class="disp m-2 container col-12"></div>
+
+                <div id="display2" class="disp m-2 container col-12"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div id="display3" class="disp m-2 container col-12"></div>
+
+                <div id="display4" class="disp m-2 container col-12"></div>
+            </div>
+        </div>
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"
         ></script>
+        <script src="javaScript/javaScript.js"></script>
     </body>
 </html>

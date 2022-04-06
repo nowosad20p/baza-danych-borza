@@ -3,7 +3,17 @@ const display = document.querySelector("#display")
 const display2 = document.querySelector("#display2")
 const rowView = document.querySelector("#row-view")
 const colView = document.querySelector("#column-view")
+const logOut = document.querySelector("#log-out")
+const usernameNav = document.querySelector("#username-nav")
+//------pilnuje by pop up o złym ekranie nie pokazał się 2 razy
+let popUpShow = true
 
+//------------- funkcja do przenoszenia do panelu logowania
+logOut.addEventListener("click", () => {
+    localStorage.clear()
+    window.location.href = "index.html"
+})
+//------------ funkcja do zmieniania układu strony z kolumny tabel do 2 kolumn tabel
 function changeView(classToAdd) {
     const displays = document.querySelectorAll(".disp")
     displays.forEach((element) => {
@@ -15,10 +25,28 @@ function changeView(classToAdd) {
 
 rowView.addEventListener("click", () => {
     changeView("col-12")
+    closePopUp()
 })
 colView.addEventListener("click", () => {
     changeView("col-5")
+    openPopUp()
 })
+//-----------------zamykanie i otwieranie pop-up'a o nie ładnie wyglądającym widoku
+function closePopUp() {
+    document.querySelector("#pop-up").style.display = "none"
+}
+function openPopUp() {
+    if (popUpShow) {
+        document.querySelector("#pop-up").style.display = "block"
+    }
+}
+document.querySelector(".bi-x-circle-fill").addEventListener("click", () => {
+    popUpShow = false
+    closePopUp()
+})
+
+//---------------dawanie danych użytkownika do navbaru
+usernameNav.innerHTML += localStorage.getItem("user_firstname") + " " + localStorage.getItem("user_lastname")
 // async function wes()
 // {
 //     let res = await fetch("sample4.json")
@@ -59,7 +87,7 @@ let res = {
         },
     ],
 }
-console.log(res)
+
 //------dane w JSON z których ma zrobić tabele, element w którym ma to wyświetlić
 function createTable(data, output) {
     const table = document.createElement("table")
@@ -109,3 +137,5 @@ function createTable(data, output) {
 }
 createTable(res, display)
 createTable(res, display2)
+createTable(res, document.querySelector("#display3"))
+createTable(res, document.querySelector("#display4"))

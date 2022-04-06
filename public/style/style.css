@@ -1,0 +1,6 @@
+.bi-x-circle-fill:hover {
+    cursor: pointer;
+}
+#pop-up {
+    display: none;
+}

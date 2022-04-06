@@ -1,7 +1,7 @@
 localStorage.clear()
 localStorage.setItem("user_id", "1")
-localStorage.setItem("user_firstname", "aa")
-localStorage.setItem("user_lastname", "dsafsf")
+localStorage.setItem("user_firstname", "Adam")
+localStorage.setItem("user_lastname", "Kowalski")
 
 async function getLogins() {
     let res = await fetch("/api/logins")
