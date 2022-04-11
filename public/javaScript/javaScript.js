@@ -117,10 +117,10 @@ function createTable(data, output) {
         thead.append(tr)
         table.append(thead)
     }
-    createHeader(data.people[0])
+    createHeader(data[0])
     //-------------dodaje dane do tablicy
     const tbody = document.createElement("tbody")
-    data.people.forEach((element) => {
+    data.forEach((element) => {
         const tr = document.createElement("tr")
         for (let key in element) {
             const td = document.createElement("td")
@@ -154,7 +154,6 @@ function offPanel() {
         })
     })
     displayBtns.style.display = "inline-flex"
-    createTable(res, document.querySelectorAll(".disp")[0])
 }
 //------- włącza widoczność panelu, wyłącza widoczność tablic i display btns
 mainPanel.addEventListener("click", () => {
@@ -170,6 +169,19 @@ mainPanel.addEventListener("click", () => {
     displayBtns.style.display = "none"
 })
 
-// createTable(res, display)
-// createTable(res, display2)
-// createTable(res, document.querySelector("#display4"))
+//---------------------------------------------------------------------
+//------------ działanie przycisków do zapytań
+
+document.querySelector("#cats-btn").addEventListener("click", async () => {
+    const res = await fetch("/api/cats")
+    data = await res.json()
+    offPanel()
+    createTable(data, document.querySelectorAll(".disp")[0])
+})
+
+document.querySelector("#categories-btn").addEventListener("click", async () => {
+    const res = await fetch("/api/categories")
+    data = await res.json()
+    offPanel()
+    createTable(data, document.querySelectorAll(".disp")[0])
+})
