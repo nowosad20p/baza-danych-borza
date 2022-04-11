@@ -1,10 +1,12 @@
 const body = document.querySelector("body")
-const display = document.querySelector("#display")
-const display2 = document.querySelector("#display2")
 const rowView = document.querySelector("#row-view")
 const colView = document.querySelector("#column-view")
 const logOut = document.querySelector("#log-out")
+const mainPanel = document.querySelector("#main-panel")
 const usernameNav = document.querySelector("#username-nav")
+const panelSections = document.querySelectorAll(".panel-section")
+const tableSections = document.querySelectorAll(".table-section")
+const displayBtns = document.querySelector("#display-btns")
 //------pilnuje by pop up o złym ekranie nie pokazał się 2 razy
 let popUpShow = true
 
@@ -135,7 +137,42 @@ function createTable(data, output) {
     })
     output.append(table)
 }
-createTable(res, display)
-createTable(res, display2)
-createTable(res, document.querySelector("#display3"))
-createTable(res, document.querySelector("#display4"))
+//-------- wyłącza widoczność panelu, pokazuje display btns, tablice i je czyści
+function offPanel()
+{
+    panelSections.forEach((element)=>{
+        element.style.display="none"
+
+    })
+    tableSections.forEach((element)=>{
+        element.style.display="block"
+        element.querySelectorAll(".disp").forEach((element)=>{
+            element.innerHTML=""
+        })
+    })
+    displayBtns.style.display = "inline-flex"
+createTable(res, document.querySelectorAll(".disp")[0])
+
+
+}
+//------- włącza widoczność panelu, wyłącza widoczność tablic i display btns
+mainPanel.addEventListener("click", ()=>{
+    //----na wszelki wypadek wyłącza też pop up
+    closePopUp()
+    popUpShow = false
+    panelSections.forEach((element)=>{
+        element.style.display="block"
+
+    })
+    tableSections.forEach((element)=>{
+        element.style.display="none"
+
+    })
+    displayBtns.style.display = "none"
+
+})
+
+
+// createTable(res, display)
+// createTable(res, display2)
+// createTable(res, document.querySelector("#display4"))

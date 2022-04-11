@@ -18,7 +18,7 @@
             <div class="container">
                 <div class="col-12 d-flex justify-content-between">
                     <div class=""><h1 class="mx-4 font-monospace text-light">IOIO</h1></div>
-                    <div class="btn-group mx-2" role="group" aria-label="Basic example">
+                    <div id="display-btns" class="btn-group mx-2" role="group" aria-label="Basic example">
                         <button id="column-view" type="button" class="btn btn-outline-info">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -101,7 +101,7 @@
         <div class="container d-flex">
             <div id="pop-up" class="border border-danger rounded border-3 bg-light p-1 pt-2 me-auto px-3">
                 <h5>
-                    Ten rodzaj widoku może nie działać poprawnie na ekranie mniejszych użądzeń.
+                    Ten rodzaj widoku może nie działać poprawnie na ekranie mniejszych urządzeń.
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="25"
@@ -118,18 +118,37 @@
             </div>
         </div>
 
-        <div class="container">
+        <div class="container table-section">
             <div class="row">
-                <div id="display" class="disp m-2 container col-12"></div>
-
-                <div id="display2" class="disp m-2 container col-12"></div>
+                <div class="disp m-2 container col-12"></div>
+                
+                <div class="disp m-2 container col-12"></div>
             </div>
         </div>
-        <div class="container">
+        <div class="container table-section">
             <div class="row">
-                <div id="display3" class="disp m-2 container col-12"></div>
+                <div class="disp m-2 container col-12"></div>
 
-                <div id="display4" class="disp m-2 container col-12"></div>
+                <div class="disp m-2 container col-12"></div>
+            </div>
+        </div>
+        <div class="container panel-section">
+            <div class="row"><h1 class="text-center">Personel</h1></div>
+            <div class="row">
+                <div class="btn-group mx-2" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-outline-info" onclick="offPanel()">
+                        Personel
+                    </button>
+                    <button type="button" class="btn btn-outline-info" onclick="offPanel()">
+                        Lekarze
+                    </button>
+                    <button type="button" class="btn btn-outline-info">
+                        Ratownicy
+                    </button>
+                    <button type="button" class="btn btn-outline-info">
+                        Operatorzy
+                    </button>
+                </div>
             </div>
         </div>
         <script
