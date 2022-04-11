@@ -185,3 +185,17 @@ document.querySelector("#categories-btn").addEventListener("click", async () => 
     offPanel()
     createTable(data, document.querySelectorAll(".disp")[0])
 })
+
+document.querySelector("#num-of-done-btn").addEventListener("click", async () => {
+    const res = await fetch("/api/personeldone")
+    data = await res.json()
+    offPanel()
+    createTable(data, document.querySelectorAll(".disp")[0])
+})
+
+document.querySelector("#all-personel-btn").addEventListener("click", async () => {
+    const res = await fetch("/api/wholepersonel")
+    data = await res.json()
+    offPanel()
+    createTable(data, document.querySelectorAll(".disp")[0])
+})
