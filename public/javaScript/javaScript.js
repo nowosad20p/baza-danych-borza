@@ -1,3 +1,8 @@
+//-------zabezpieczenie jakby ktoś się próbował dostać przez link
+if (localStorage.getItem("user_firstname") == null) {
+    window.location.href = "index.html"
+}
+//---------------------------------------------------
 const body = document.querySelector("body")
 const rowView = document.querySelector("#row-view")
 const colView = document.querySelector("#column-view")
@@ -138,40 +143,32 @@ function createTable(data, output) {
     output.append(table)
 }
 //-------- wyłącza widoczność panelu, pokazuje display btns, tablice i je czyści
-function offPanel()
-{
-    panelSections.forEach((element)=>{
-        element.style.display="none"
-
+function offPanel() {
+    panelSections.forEach((element) => {
+        element.style.display = "none"
     })
-    tableSections.forEach((element)=>{
-        element.style.display="block"
-        element.querySelectorAll(".disp").forEach((element)=>{
-            element.innerHTML=""
+    tableSections.forEach((element) => {
+        element.style.display = "block"
+        element.querySelectorAll(".disp").forEach((element) => {
+            element.innerHTML = ""
         })
     })
     displayBtns.style.display = "inline-flex"
-createTable(res, document.querySelectorAll(".disp")[0])
-
-
+    createTable(res, document.querySelectorAll(".disp")[0])
 }
 //------- włącza widoczność panelu, wyłącza widoczność tablic i display btns
-mainPanel.addEventListener("click", ()=>{
+mainPanel.addEventListener("click", () => {
     //----na wszelki wypadek wyłącza też pop up
     closePopUp()
     popUpShow = false
-    panelSections.forEach((element)=>{
-        element.style.display="block"
-
+    panelSections.forEach((element) => {
+        element.style.display = "block"
     })
-    tableSections.forEach((element)=>{
-        element.style.display="none"
-
+    tableSections.forEach((element) => {
+        element.style.display = "none"
     })
     displayBtns.style.display = "none"
-
 })
-
 
 // createTable(res, display)
 // createTable(res, display2)

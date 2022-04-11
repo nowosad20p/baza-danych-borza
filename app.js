@@ -22,27 +22,13 @@ let poolBase = mysql.createPool({
     database: "ioio",
 })
 
-//------zbieranie loginów z bazy danych
-async function getLogins() {
-    let logins = await poolBase.query("SELECT id_operatora, imie_operatora, nazwisko_operatora from operatorzy", async function (err, res, fields) {
-        if (err) throw err
-        console.log(res)
-        return res
-    })
-    console.log("logins")
-    console.log(logins)
-    console.log("logins")
-    return logins
-}
-
 //-------wyslanie loginów
 app.get("/api/logins", (req, res) => {
     console.log("Got a login request.")
-    let logins = getLogins()
-    res.json({ sos: "fafjsafsanfjnsjan" })
+    poolBase.query("SELECT id_operatora, imie_operatora, nazwisko_operatora from operatorzy", function (err, rows) {
+        if (err) throw err
+        console.log(rows)
+        res.send(rows)
+        return
+    })
 })
-
-// poolBase.query("SELECT id_operatora, imie_operatora, nazwisko_operatora from operatorzy", function (err, res, fields) {
-//     if (err) throw err
-//     console.log(res)
-// })
